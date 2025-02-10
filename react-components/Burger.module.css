@@ -1,0 +1,40 @@
+.bun {
+    background-color: #c98c13ef;
+    width: 100%;
+    flex-grow: 1;
+  }
+  
+  .top {
+    border-radius: 50% 50% 0 0;
+  }
+
+.ingr {
+    margin-block: 0.15rem;
+    min-height: 0.45rem;
+    outline: 2px solid black;
+}
+
+.meat {
+    background-color: rgba(198, 60, 60, 0.786);
+}
+
+.cheese {
+    background-color: rgba(255, 220, 22, 0.868);
+}
+
+.tomato {
+    background-color: rgba(239, 42, 2, 0.868);
+}
+
+.lettuce {
+    background-color: rgba(85, 255, 111, 0.542);
+}
+
+.pickle {
+    background-color: rgb(135, 224, 135);
+}
+
+.pickles {
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+}
