@@ -12,7 +12,8 @@ export default defineConfig({
                 main: resolve(__dirname, "index.html"),
                 about: resolve(__dirname, "about/index.html"),
                 button: resolve(__dirname, "button/index.html"),
-                hellorollup: resolve(__dirname, "hellorollup/index.html")
+                hellorollup: resolve(__dirname, "hellorollup/index.html"),
+                react: resolve(__dirname, "react/index.html")
             },
         },
     },
