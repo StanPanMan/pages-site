@@ -5,8 +5,8 @@
 }
 
 .burger {
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
 }
 
 .top {
