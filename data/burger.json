@@ -30,7 +30,7 @@
         "classes": ["meat"]
     },
     {
-        "id": "cheese-2",
+        "id": "swiss-cheese",
         "name": "Swiss Cheese",
         "sizeRatio": 1,
         "classes": ["cheese", "swiss"]
