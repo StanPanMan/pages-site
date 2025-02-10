@@ -1,16 +1,28 @@
 import { Component } from "react";
 import sx from "./Burger.module.css";
+import BURGER_DATA from "/data/burger.json";
 
 
 class Burger extends Component {
     constructor(props) {
         super(props);
+        const initialState = {
+            burger: BURGER_DATA,
+        };
+        this.state = initialState;
     }
 
     render() {
+        const reducer = (accumulator, cursor, i, array) => {
+            if (i === array.length - 1) {
+                return [...accumulator, <Pickles key="pickles" />, cursor];
+            }
+            return [...accumulator, cursor];
+        };
+
         return (
                 <div 
-                    className="flex-col"
+                    className={`flex-col ${sx.burger}`}
                     style={{
                         minHeight: "5cm",
                         border: "1px solid red",
@@ -19,33 +31,59 @@ class Burger extends Component {
                         justifyContent: "center",
                     }}
                 >
-                    <Ingredient sizeRatio={12} classes={[sx.top, sx.bun, sx.ingr]} />
-                    <Ingredient sizeRatio={1} classes={[sx.lettuce, sx.ingr]} />
-                    <Ingredient sizeRatio={2} classes={[sx.tomato, sx.ingr]} />
-                    <Ingredient sizeRatio={1} classes={[sx.cheese, sx.ingr]} />
-                    <Ingredient sizeRatio={4} classes={[sx.meat, sx.ingr]} />
-                    <Pickles />
-                    <Ingredient sizeRatio={6} classes={[sx.bun, sx.ingr]} />
+                    {this.state.burger
+                        .map(renderOneIngredient.bind(this)) 
+                        .reduce(reducer, [])}
                 </div>
         );
     }
 }
 
+function renderOneIngredient(ingredient) {
+    console.log(this)
+    const remove = () => {
+        const mutateState = ({ burger }) => ({
+            burger: burger.filter((ingr) => ingr.id !== ingredient.id),
+        });
+        this.setState(mutateState);
+    };
+    const { id: key } = ingredient;
+    const props = {
+        remove,
+        ingredient,
+    };
+    return <Ingredient {...props} key={key} />;
+};
+
 /**
  * 
  * @param {Object} props
- * @param {number} props.sizeRatio 
- * @param {string[]} props.classes
+ * @param {Object} props.ingredient
+ * @param {number} props.ingredient.sizeRatio 
+ * @param {string[]} props.ingredient.classes
+ * @param {string} props.ingredient.id
+ * @param {string} props.ingredient.name
+ * @param {function} props.remove
  * @returns {JSX.Element}
  */
+
 const Ingredient = (props) => {
-    const { sizeRatio: flexGrow, classes } = props;
-    const style = { flexGrow };
+    const { ingredient, remove } = props;
+    const { id, name, sizeRatio: flexGrow } = ingredient;
+    const classes = ingredient.classes.map((c) => sx[c]).concat(sx.ingr);
+    const style = { flexGrow, justifyContent: "flex-end", alignItems: "flex-end" };
     const childProps = {
+        id,
         style,
-        className: classes.join(" "),
+        className: classes.concat("flex-row").join(" "),
     }
-    return <div {...childProps}/>
+    const btnProps = {
+        className: `${sx.remove}`,
+        onClick: remove
+    }
+    return <div {...childProps}>
+        <button {...btnProps}>Remove {name}</button>
+    </div>
 }
 
 const Pickle = () => (

@@ -2,11 +2,15 @@
     background-color: #c98c13ef;
     width: 100%;
     flex-grow: 1;
-  }
-  
-  .top {
+}
+
+.burger {
+    max-width: 500px;
+}
+
+.top {
     border-radius: 50% 50% 0 0;
-  }
+}
 
 .ingr {
     margin-block: 0.15rem;
@@ -20,6 +24,10 @@
 
 .cheese {
     background-color: rgba(255, 220, 22, 0.868);
+}
+
+.cheese.swiss {
+    background-color: rgba(255, 242, 168, 0.868);
 }
 
 .tomato {
@@ -37,4 +45,21 @@
 .pickles {
     gap: 0.5rem;
     padding-inline: 0.5rem;
+}
+
+button.remove {
+    margin: 0.2rem 0.75rem ;
+    font-size: small;
+    color: black;
+    background-color: rgb(255, 255, 255, 0.75);
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+button.remove:hover {
+    background-color: rgb(255, 149, 223);
+}
+
+button.remove:active {
+    background-color: cyan;
 }

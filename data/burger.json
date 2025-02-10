@@ -1,0 +1,44 @@
+[
+    {
+        "id": "top-bun",
+        "name": "Top Bun",
+        "sizeRatio": 12,
+        "classes": ["top", "bun"]
+    },
+    {
+        "id": "lettuce",
+        "name": "Lettuce",
+        "sizeRatio": 1,
+        "classes": ["lettuce"]
+    },
+    {
+        "id": "tomato",
+        "name": "Tomato",
+        "sizeRatio": 2,
+        "classes": ["tomato"]
+    },
+    {
+        "id": "cheese",
+        "name": "Cheese",
+        "sizeRatio": 1,
+        "classes": ["cheese"]
+    },
+    {
+        "id": "meat",
+        "name": "Meat",
+        "sizeRatio": 4,
+        "classes": ["meat"]
+    },
+    {
+        "id": "cheese-2",
+        "name": "Swiss Cheese",
+        "sizeRatio": 1,
+        "classes": ["cheese", "swiss"]
+    },
+    {
+        "id": "bottom-bun",
+        "name": "Bottom Bun",
+        "sizeRatio": 6,
+        "classes": ["bun"]
+    }
+]
