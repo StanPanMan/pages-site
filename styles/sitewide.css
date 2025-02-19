@@ -22,3 +22,11 @@ main {
     display: flex;
     flex-direction: row;
 }
+
+.header {
+  font-size: 36px;
+}
+
+.indent {
+  text-indent: 40px;
+}
